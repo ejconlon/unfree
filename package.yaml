@@ -2,7 +2,7 @@ name:                unfree
 version:             0.1.0
 github:              "ejconlon/unfree"
 license:             BSD3
-author:              "Author name here"
+author:              "Eric Conlon"
 maintainer:          "ejconlon@gmail.com"
 copyright:           "(c) 2022 Eric Conlon"
 # category:            Undefined
