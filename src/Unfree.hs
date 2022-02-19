@@ -34,7 +34,7 @@ import GHC.Generics (Generic)
 data FreeF f a r =
     FreePureF !a
   | FreeEmbedF !(f r)
-  deriving stock (Eq, Show, Functor, Foldable, Traversable, Generic)
+  deriving stock (Eq, Ord, Show, Functor, Foldable, Traversable, Generic)
   deriving anyclass (NFData, Hashable)
 
 instance Functor f => Bifunctor (FreeF f) where
@@ -64,6 +64,7 @@ pattern FreeEmbed fr = Free (FreeEmbedF fr)
 {-# COMPLETE FreePure, FreeEmbed #-}
 
 deriving newtype instance (Eq (f (Free f a)), Eq a) => Eq (Free f a)
+deriving newtype instance (Ord (f (Free f a)), Ord a) => Ord (Free f a)
 deriving stock instance (Show (f (Free f a)), Show a) => Show (Free f a)
 deriving newtype instance (NFData (f (Free f a)), NFData a) => NFData (Free f a)
 deriving newtype instance (Hashable (f (Free f a)), Hashable a) => Hashable (Free f a)
@@ -128,6 +129,7 @@ iterFreeM f = go where
 newtype FreeT f m a = FreeT { unFreeT :: m (FreeF f a (FreeT f m a)) }
 
 deriving newtype instance Eq (m (FreeF f a (FreeT f m a))) => Eq (FreeT f m a)
+deriving newtype instance Ord (m (FreeF f a (FreeT f m a))) => Ord (FreeT f m a)
 deriving stock instance Show (m (FreeF f a (FreeT f m a))) => Show (FreeT f m a)
 deriving newtype instance NFData (m (FreeF f a (FreeT f m a))) => NFData (FreeT f m a)
 deriving newtype instance Hashable (m (FreeF f a (FreeT f m a))) => Hashable (FreeT f m a)
