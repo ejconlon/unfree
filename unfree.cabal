@@ -6,7 +6,9 @@ cabal-version: 1.12
 
 name:           unfree
 version:        0.1.0
+synopsis:       Simplistic free monad with deriving through UndecidableInstances
 description:    Please see the README on GitHub at <https://github.com/ejconlon/unfree#readme>
+category:       Control
 homepage:       https://github.com/ejconlon/unfree#readme
 bug-reports:    https://github.com/ejconlon/unfree/issues
 author:         Eric Conlon
