@@ -1,7 +1,0 @@
-cradle:
-  stack:
-    - path: "./src"
-      component: "unfree:lib"
-
-    - path: "./test"
-      component: "unfree:test:unfree-test"
